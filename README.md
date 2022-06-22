@@ -1,11 +1,1 @@
-# Image-Processing
-hsv_img = cv2.cvtColor(img, cv2.COLOR_RGB2HSV)
-light_Green=(144,238,144)
-dark_Green=(40, 93, 52)
-mask=cv2.inRange(img,light_Green,dark_Green)
-result=cv2.bitwise_and(img,img,mask=mask)
-plt.subplot(1,2,1)
-plt.imshow(mask,cmap="gray")
-plt.subplot(1,2,2)
-plt.imshow(result)
-plt.show()
+
