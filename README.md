@@ -145,52 +145,52 @@ cv2.destroyAllWindows()<BR>
   
 ![174048342-35f42e3d-bccf-4d8b-8b8f-44b19dd6182a](https://user-images.githubusercontent.com/98145297/175282802-fa368b84-bab0-4323-9203-9356ff8e3369.png)
 
-**13.Develop the program to change the image to different color spaces.**
+**13.Develop the program to change the image to different color spaces.**<BR>
   
-#Develop the program to change the image to different color spaces.
-import cv2
-img=cv2.imread("flower5.jpg")
-gray=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
-hsv=cv2.cvtColor(img,cv2.COLOR_BGR2HSV)
-lab=cv2.cvtColor(img,cv2.COLOR_BGR2LAB)
-hls=cv2.cvtColor(img,cv2.COLOR_BGR2HLS)
-yuv=cv2.cvtColor(img,cv2.COLOR_BGR2YUV)
-cv2.imshow("GRAY image",gray)
-cv2.imshow("HSV image",hsv)
-cv2.imshow("LAB image",lab)
-cv2.imshow("HLS image",hls)
-cv2.imshow("YUV image",yuv)
+#Develop the program to change the image to different color spaces.<BR>
+import cv2<BR>
+img=cv2.imread("flower5.jpg")<BR>
+gray=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)<BR>
+hsv=cv2.cvtColor(img,cv2.COLOR_BGR2HSV)<BR>
+lab=cv2.cvtColor(img,cv2.COLOR_BGR2LAB)<BR>
+hls=cv2.cvtColor(img,cv2.COLOR_BGR2HLS)<BR>
+yuv=cv2.cvtColor(img,cv2.COLOR_BGR2YUV)<BR>
+cv2.imshow("GRAY image",gray)<BR>
+cv2.imshow("HSV image",hsv)<BR>
+cv2.imshow("LAB image",lab)<BR>
+cv2.imshow("HLS image",hls)<BR>
+cv2.imshow("YUV image",yuv)<BR>
 cv2.waitKey(0)
-cv2.destroyAllWindows()
+cv2.destroyAllWindows()<BR>
   
-**OUTPUT**
+**OUTPUT**<BR>
   
 
   
-![175270342-85783a7b-7426-4963-8c35-cca4c75c8fe9](https://user-images.githubusercontent.com/98145297/175286867-c28e0b73-de7a-449b-aba5-5854d4d1d91b.png)
+![175270342-85783a7b-7426-4963-8c35-cca4c75c8fe9](https://user-images.githubusercontent.com/98145297/175286867-c28e0b73-de7a-449b-aba5-5854d4d1d91b.png)<BR>
   
   ![175270746-5ea73ee1-aa46-4d09-9529-cf6ca35b1e35](https://user-images.githubusercontent.com/98145297/175286891-a32b7990-e0f5-4b9d-aa2e-864634d0c690.png)
-![175270930-87dbe99b-4ce4-4300-a996-cfcb3ce2d7f0](https://user-images.githubusercontent.com/98145297/175286907-68b36de2-500a-4542-9a7a-89d4471f57df.png)
+![175270930-87dbe99b-4ce4-4300-a996-cfcb3ce2d7f0](https://user-images.githubusercontent.com/98145297/175286907-68b36de2-500a-4542-9a7a-89d4471f57df.png)<BR>
 
   
   
-![175271007-9e6cc280-f7c2-494b-9fa4-0f70b0671b04](https://user-images.githubusercontent.com/98145297/175286918-d52dd7d9-e4cc-42fc-b9e9-870d66e33b69.png)
+![175271007-9e6cc280-f7c2-494b-9fa4-0f70b0671b04](https://user-images.githubusercontent.com/98145297/175286918-d52dd7d9-e4cc-42fc-b9e9-870d66e33b69.png)<BR>
 
-  ![175271082-f7c92ce4-161d-477f-8b4c-78a15af54dd2](https://user-images.githubusercontent.com/98145297/175286924-1587f0c3-fa1f-4cf8-9749-895d95abba36.png)
+  ![175271082-f7c92ce4-161d-477f-8b4c-78a15af54dd2](https://user-images.githubusercontent.com/98145297/175286924-1587f0c3-fa1f-4cf8-9749-895d95abba36.png)<BR>
 
-14.Program to create an image using 2D array.
-import cv2 as c
-import numpy as np
-from PIL import Image
-array=np.zeros([100,200,3],dtype=np.uint8)
-array[:,:100]=[255,130,0]
-array[:,100:]=[0,0,255]
-img=Image.fromarray(array)
-img.save('flower5.jpg')
-img.show()
-c.waitKey(0)
+14.Program to create an image using 2D array.<BR>
+import cv2 as c<BR>
+import numpy as np<BR>
+from PIL import Image<BR>
+array=np.zeros([100,200,3],dtype=np.uint8)<BR>
+array[:,:100]=[255,130,0]<BR>
+array[:,100:]=[0,0,255]<BR>
+img=Image.fromarray(array)<BR>
+img.save('flower5.jpg')<BR>
+img.show()<BR>
+c.waitKey(0)<BR>
 
-  **OUTPUT **
+  **OUTPUT **<BR>
   ![175271426-a7f9f364-377a-4390-96df-e286e4bed715](https://user-images.githubusercontent.com/98145297/175287003-95572f56-12a1-421b-bcdf-2621846740b1.png)
 
   
