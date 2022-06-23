@@ -72,10 +72,74 @@ img=cv2.cvtColor(img,cv2.COLOR_RGB2HSV)<BR>
 plt.imshow(img)<BR>
 plt.show()<BR>
  
-  **OUTPU![174046770-58ad4a03-36f0-47ed-bb0b-2aa87b9b6147](https://user-images.githubusercontent.com/98145297/175281940-dfad1a6a-4509-4cf5-b642-eb50a6ca9901.png)
-T**<BR>![174046727-aa05f644-2482-4671-925f-b6f5ed75d095](https://user-images.githubusercontent.com/98145297/175281920-c7b6672d-0b1d-4b9a-bd91-72bcf1a5289f.png)
+  **OUTPUT**
+  
+  ![174046770-58ad4a03-36f0-47ed-bb0b-2aa87b9b6147](https://user-images.githubusercontent.com/98145297/175281940-dfad1a6a-4509-4cf5-b642-eb50a6ca9901.png)
+**<BR>![174046727-aa05f644-2482-4671-925f-b6f5ed75d095](https://user-images.githubusercontent.com/98145297/175281920-c7b6672d-0b1d-4b9a-bd91-72bcf1a5289f.png)
 
   
   
 ![174046823-471827fe-7b38-4614-879c-16660c9c7990](https://user-images.githubusercontent.com/98145297/175280792-bfd9c63b-0acd-4100-885d-8c93373150ae.png)
 
+**7. Write a program to display the image attributes.**
+  
+  from PIL import Image
+image=Image.open('plant4.jpg')
+print("FileName: ",image.filename)
+print("Format: ",image.format)
+print("Mode: ",image.mode)
+print("Size: ",image.size)
+print("Width: ",image.width)
+print("Height: ",image.height)
+image.close();
+**OUTPUT**
+FileName: plant4.jpg
+Format: JPEG
+Mode: RGB
+Size: (480, 720)
+Width: 480
+Height: 720
+  
+**8. Resize the original image.**
+  
+ import cv2
+img=cv2.imread('flower5.jpg')
+print('origial image length width',img.shape)
+cv2.imshow('original image',img)
+cv2.waitKey(0)
+#to show the resized image
+imgresize=cv2.resize(img,(150,160))
+cv2.imshow('Resized image',imgresize)
+print('Resized image length, width',imgresize.shape)
+cv2.waitKey(0)
+**OUTPUT**
+origial image length width (640, 960, 3)
+Resized image lenght width (160, 150, 3)
+  
+**9. Convert the original image to gray scale and then to binary.**
+import cv2
+#read the image file
+img=cv2.imread('butterfly3.jpg')
+cv2.imshow("RGB",img)
+cv2.waitKey(0)
+
+#Grayscale
+
+img=cv2.imread('butterfly3.jpg',0)
+cv2.imshow("Gray",img)
+cv2.waitKey(0)
+
+#Binary image
+
+ret,bw_img=cv2.threshold(img,127,255,cv2.THRESH_BINARY)
+cv2.imshow("Binary",bw_img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+**OUTPUT**
+  
+  ![174048120-![174048200-092e4aca-f297-492e-8af8-010b96b689dc](https://user-images.githubusercontent.com/98145297/175282764-93ff3f32-dcd2-496c-a4f4-e03ce4714ad5.png)
+9fc7d698-0466-459c-a2bf-38816501be12](https://user-images.githubusercontent.com/98145297/175282743-196f4f84-1d17-46c7-822f-4c14299ed2b1.png)
+![174048342-35f42e3d-bccf-4d8b-8b8f-44b19dd6182a](https://user-images.githubusercontent.com/98145297/175282802-fa368b84-bab0-4323-9203-9356ff8e3369.png)
+
+  
+  
