@@ -1,12 +1,12 @@
-**IMAGE PROCESSING**
+**IMAGE PROCESSING**<BR>
 
-**1. Develop a program to display grayscale image using read and write operation.**
-pip install opencv-python
-import cv2
-img=cv2.imread('flower5.jpg',0)
-cv2.imshow('image',img)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+**1. Develop a program to display grayscale image using read and write operation.**<BR>
+pip install opencv-python<BR>
+import cv2<BR>
+img=cv2.imread('flower5.jpg',0)<BR>
+cv2.imshow('image',img)<BR>
+cv2.waitKey(0)<BR>
+cv2.destroyAllWindows()<BR>
 
 **OUTPUT**
 
