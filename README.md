@@ -22,7 +22,7 @@ plt.imshow(img)<BR>
   ![174042162-a75f11ae-0ea3-4885-ae30-ff9720232530](https://user-images.githubusercontent.com/98145297/175275091-97edf2c2-ee5d-4fdf-b351-93f8fa21e849.png)<BR>
 
   
-** 3. develop a program to perform linear transformation. Rotation**<BR>
+**3. develop a program to perform linear transformation. Rotation**<BR>
   import cv2<BR>
 from PIL import Image
 img=Image.open("plant4.jpg")<BR>
@@ -34,7 +34,7 @@ cv2.destroyAllWindows()<BR>
   **OUTPUT**<BR>
   ![174042633-31ed2a88-33e8-4f3e-9a90-0a1a721187b8](https://user-images.githubusercontent.com/98145297/175275653-ab0b3810-d5e9-4edb-865c-d00aff10d598.png)<BR>
   
-**  4. Develop a program to convert colour string to RGB color values.**<BR>
+**4. Develop a program to convert colour string to RGB color values.**<BR>
   
   from PIL import ImageColor<BR>
 img1=ImageColor.getrgb("Yellow")<BR>
@@ -46,7 +46,7 @@ print(img2)<BR>
 (255, 255, 0)<BR>
 (255, 0, 0) <BR>
   
-** 5. Write a program to create Image using programs. **  <BR>
+**5. Write a program to create Image using programs. **  <BR>
   
   from PIL import Image<BR>
 img=Image.new('RGB',(200,400),(255,255,0))<BR>
@@ -57,7 +57,7 @@ img.show()<BR>
   ![174046289-402f6aa6-9029-4efc-97d7-09f1cfa62f2c](https://user-images.githubusercontent.com/98145297/175276686-a802ba7b-ea22-4d22-8a68-7b1eaca0c2ae.png)<BR>
 
 
-** 6. Develop a program to visualize the image using various color space.**<BR>
+**6. Develop a program to visualize the image using various color space.**<BR>
   import cv2<BR>
 import matplotlib.pyplot as plt<BR>
 import numpy as np<BR>
@@ -136,9 +136,10 @@ cv2.imshow("Binary",bw_img)<BR>
 cv2.waitKey(0)<BR>
 cv2.destroyAllWindows()<BR>
 **OUTPUT**
+  
 ![174048120-9fc7d698-0466-459c-a2bf-38816501be12](https://user-images.githubusercontent.com/98145297/175283116-69ecad53-cd8f-41e4-a13b-c1be6d5638ad.png)
 
-  ![Uploading 174048120-9fc7d698-0466-459c-a2bf-38816501be12.png…]()
+  
 ![174048200-092e4aca-f297-492e-8af8-010b96b689dc](https://user-images.githubusercontent.com/98145297/175283136-84d6df80-1b53-4cb5-8bf3-6023078ae241.png)
 
   
