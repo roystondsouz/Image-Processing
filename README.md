@@ -72,9 +72,10 @@ img=cv2.cvtColor(img,cv2.COLOR_RGB2HSV)<BR>
 plt.imshow(img)<BR>
 plt.show()<BR>
  
-  **OUTPUT**<BR>
-  ![174046727-aa05f644-2482-4671-925f-b6f5ed75d095](https://user-images.gith![174046770-58ad4a03-36f0-47ed-bb0b-2aa87b9b6147](https://user-images.githubusercontent.com/98145297/175280757-6f0e6593-9583-4fee-b229-c514f1bfa9da.png)
-ubusercontent.com/98145297/175280738-8b872350-de2f-47a8-a6ba-8c06cc62de53.png)<BR>
+  **OUTPU![174046770-58ad4a03-36f0-47ed-bb0b-2aa87b9b6147](https://user-images.githubusercontent.com/98145297/175281940-dfad1a6a-4509-4cf5-b642-eb50a6ca9901.png)
+T**<BR>![174046727-aa05f644-2482-4671-925f-b6f5ed75d095](https://user-images.githubusercontent.com/98145297/175281920-c7b6672d-0b1d-4b9a-bd91-72bcf1a5289f.png)
 
+  
+  
 ![174046823-471827fe-7b38-4614-879c-16660c9c7990](https://user-images.githubusercontent.com/98145297/175280792-bfd9c63b-0acd-4100-885d-8c93373150ae.png)
 
