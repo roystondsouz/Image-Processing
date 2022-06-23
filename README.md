@@ -46,7 +46,7 @@ print(img2)<BR>
 (255, 255, 0)<BR>
 (255, 0, 0) <BR>
   
-**5. Write a program to create Image using programs. **  <BR>
+**5. Write a program to create Image using programs.**  <BR>
   
   from PIL import Image<BR>
 img=Image.new('RGB',(200,400),(255,255,0))<BR>
@@ -169,16 +169,18 @@ cv2.destroyAllWindows()<BR>
   
 ![175270342-85783a7b-7426-4963-8c35-cca4c75c8fe9](https://user-images.githubusercontent.com/98145297/175286867-c28e0b73-de7a-449b-aba5-5854d4d1d91b.png)<BR>
   
+  
   ![175270746-5ea73ee1-aa46-4d09-9529-cf6ca35b1e35](https://user-images.githubusercontent.com/98145297/175286891-a32b7990-e0f5-4b9d-aa2e-864634d0c690.png)
 ![175270930-87dbe99b-4ce4-4300-a996-cfcb3ce2d7f0](https://user-images.githubusercontent.com/98145297/175286907-68b36de2-500a-4542-9a7a-89d4471f57df.png)<BR>
 
   
   
 ![175271007-9e6cc280-f7c2-494b-9fa4-0f70b0671b04](https://user-images.githubusercontent.com/98145297/175286918-d52dd7d9-e4cc-42fc-b9e9-870d66e33b69.png)<BR>
+  
 
   ![175271082-f7c92ce4-161d-477f-8b4c-78a15af54dd2](https://user-images.githubusercontent.com/98145297/175286924-1587f0c3-fa1f-4cf8-9749-895d95abba36.png)<BR>
 
-14.Program to create an image using 2D array.<BR>
+**14.Program to create an image using 2D array**.<BR>
 import cv2 as c<BR>
 import numpy as np<BR>
 from PIL import Image<BR>
@@ -190,7 +192,7 @@ img.save('flower5.jpg')<BR>
 img.show()<BR>
 c.waitKey(0)<BR>
 
-  **OUTPUT **<BR>
+  **OUTPUT**<BR>
   ![175271426-a7f9f364-377a-4390-96df-e286e4bed715](https://user-images.githubusercontent.com/98145297/175287003-95572f56-12a1-421b-bcdf-2621846740b1.png)
 
   
