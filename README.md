@@ -81,62 +81,62 @@ plt.show()<BR>
   
 ![174046823-471827fe-7b38-4614-879c-16660c9c7990](https://user-images.githubusercontent.com/98145297/175280792-bfd9c63b-0acd-4100-885d-8c93373150ae.png)
 
-**7. Write a program to display the image attributes.**
+**7. Write a program to display the image attributes.**<BR>
   
-  from PIL import Image
-image=Image.open('plant4.jpg')
-print("FileName: ",image.filename)
-print("Format: ",image.format)
-print("Mode: ",image.mode)
-print("Size: ",image.size)
-print("Width: ",image.width)
-print("Height: ",image.height)
-image.close();
+  from PIL import Image<BR>
+image=Image.open('plant4.jpg')<BR>
+print("FileName: ",image.filename)<BR>
+print("Format: ",image.format)<BR>
+print("Mode: ",image.mode)<BR>
+print("Size: ",image.size)<BR>
+print("Width: ",image.width)<BR>
+print("Height: ",image.height)<BR>
+image.close();<BR>
+**OUTPUT**<BR>
+FileName: plant4.jpg<BR>
+Format: JPEG<BR>
+Mode: RGB<BR>
+Size: (480, 720)<BR>
+Width: 480<BR>
+Height: 720<BR>
+  
+**8. Resize the original image.**<BR>
+  
+ import cv2<BR>
+img=cv2.imread('flower5.jpg')<BR>
+print('origial image length width',img.shape)<BR>
+cv2.imshow('original image',img)<BR>
+cv2.waitKey(0)<BR>
+#to show the resized image<BR>
+imgresize=cv2.resize(img,(150,160))<BR>
+cv2.imshow('Resized image',imgresize)<BR>
+print('Resized image length, width',imgresize.shape)<BR>
+cv2.waitKey(0)<BR>
+<BR>**OUTPUT**<BR>
+origial image length width (640, 960, 3)<BR>
+Resized image lenght width (160, 150, 3)<BR>
+<BR>  
+**9. Convert the original image to gray scale and then to binary.**<BR>
+import cv2<BR>
+#read the image file<BR>
+img=cv2.imread('butterfly3.jpg')<BR>
+cv2.imshow("RGB",img)<BR>
+cv2.waitKey(0)<BR>
+
+#Grayscale<BR>
+<BR>
+img=cv2.imread('butterfly3.jpg',0)<BR>
+cv2.imshow("Gray",img)<BR>
+cv2.waitKey(0)<BR>
+
+#Binary image<BR>
+
+ret,bw_img=cv2.threshold(img,127,255,cv2.THRESH_BINARY)<BR>
+cv2.imshow("Binary",bw_img)<BR>
+cv2.waitKey(0)<BR>
+cv2.destroyAllWindows()<BR>
 **OUTPUT**
-FileName: plant4.jpg
-Format: JPEG
-Mode: RGB
-Size: (480, 720)
-Width: 480
-Height: 720
-  
-**8. Resize the original image.**
-  
- import cv2
-img=cv2.imread('flower5.jpg')
-print('origial image length width',img.shape)
-cv2.imshow('original image',img)
-cv2.waitKey(0)
-#to show the resized image
-imgresize=cv2.resize(img,(150,160))
-cv2.imshow('Resized image',imgresize)
-print('Resized image length, width',imgresize.shape)
-cv2.waitKey(0)
-**OUTPUT**
-origial image length width (640, 960, 3)
-Resized image lenght width (160, 150, 3)
-  
-**9. Convert the original image to gray scale and then to binary.**
-import cv2
-#read the image file
-img=cv2.imread('butterfly3.jpg')
-cv2.imshow("RGB",img)
-cv2.waitKey(0)
-
-#Grayscale
-
-img=cv2.imread('butterfly3.jpg',0)
-cv2.imshow("Gray",img)
-cv2.waitKey(0)
-
-#Binary image
-
-ret,bw_img=cv2.threshold(img,127,255,cv2.THRESH_BINARY)
-cv2.imshow("Binary",bw_img)
-cv2.waitKey(0)
-cv2.destroyAllWindows()![174048120-9fc7d698-0466-459c-a2bf-38816501be12](https://user-images.githubusercontent.com/98145297/175283116-69ecad53-cd8f-41e4-a13b-c1be6d5638ad.png)
-
-**OUTPUT**
+![174048120-9fc7d698-0466-459c-a2bf-38816501be12](https://user-images.githubusercontent.com/98145297/175283116-69ecad53-cd8f-41e4-a13b-c1be6d5638ad.png)
 
   ![Uploading 174048120-9fc7d698-0466-459c-a2bf-38816501be12.png…]()
 ![174048200-092e4aca-f297-492e-8af8-010b96b689dc](https://user-images.githubusercontent.com/98145297/175283136-84d6df80-1b53-4cb5-8bf3-6023078ae241.png)
