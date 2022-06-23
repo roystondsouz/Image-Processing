@@ -134,11 +134,14 @@ cv2.waitKey(0)
 ret,bw_img=cv2.threshold(img,127,255,cv2.THRESH_BINARY)
 cv2.imshow("Binary",bw_img)
 cv2.waitKey(0)
-cv2.destroyAllWindows()
+cv2.destroyAllWindows()![174048120-9fc7d698-0466-459c-a2bf-38816501be12](https://user-images.githubusercontent.com/98145297/175283116-69ecad53-cd8f-41e4-a13b-c1be6d5638ad.png)
+
 **OUTPUT**
+
+  ![Uploading 174048120-9fc7d698-0466-459c-a2bf-38816501be12.png…]()
+![174048200-092e4aca-f297-492e-8af8-010b96b689dc](https://user-images.githubusercontent.com/98145297/175283136-84d6df80-1b53-4cb5-8bf3-6023078ae241.png)
+
   
-  ![174048120-![174048200-092e4aca-f297-492e-8af8-010b96b689dc](https://user-images.githubusercontent.com/98145297/175282764-93ff3f32-dcd2-496c-a4f4-e03ce4714ad5.png)
-9fc7d698-0466-459c-a2bf-38816501be12](https://user-images.githubusercontent.com/98145297/175282743-196f4f84-1d17-46c7-822f-4c14299ed2b1.png)
 ![174048342-35f42e3d-bccf-4d8b-8b8f-44b19dd6182a](https://user-images.githubusercontent.com/98145297/175282802-fa368b84-bab0-4323-9203-9356ff8e3369.png)
 
   
