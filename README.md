@@ -1,6 +1,6 @@
 **IMAGE PROCESSING**<BR>
   
-  **1.Develop a program to?
+  **1.Develop a program to?**
 (i) Read the image, convert it into grayscale image
 (ii) write (save) the grayscale image and
 (iii) display the original image and grayscale image**
@@ -143,9 +143,11 @@ Resized image lenght width (160, 150, 3)<BR>
 <BR> 
   
   
+  Original size
 
   
   
+  Resized
   
 **9. Convert the original image to gray scale and then to binary.**<BR>
 import cv2<BR>
@@ -175,6 +177,88 @@ cv2.destroyAllWindows()<BR>
 
   
 ![174048342-35f42e3d-bccf-4d8b-8b8f-44b19dd6182a](https://user-images.githubusercontent.com/98145297/175282802-fa368b84-bab0-4323-9203-9356ff8e3369.png)
+  
+**  10.Develop a program to readimage using URL?**
+  
+ from skimage import io
+import matplotlib.pyplot as plt
+url='https://www.alfredapp.com/blog/tips-and-tricks/tiny-png-workflow-compress-images/tinypng-panda.png'
+image=io.imread(url)
+plt.imshow(image)
+  **output**
+  ![175267752-1bb4a140-4b67-4c3b-a490-0dd6a8ab7388](https://user-images.githubusercontent.com/98145297/178954935-97908ab5-65e2-40fd-b0ab-581f6f567f86.png)
+
+  11. import cv2
+import matplotlib.image as mpimg
+import matplotlib.pyplot as plt
+img=mpimg.imread('images.jpg')
+plt.imshow(img)
+plt.show()
+
+  ![175288897-b09f70dc-787b-4b19-beb5-aa9b54cb04cb](https://user-images.githubusercontent.com/98145297/178955160-57d13ef7-6865-4e90-8626-c770a5b045a2.png)
+
+hsv_img=cv2.cvtColor(img,cv2.COLOR_RGB2HSV)
+light_orange=(0,50,50)
+dark_orange=(10,255,255)
+mask=cv2.inRange(hsv_img,light_orange,dark_orange)
+result=cv2.bitwise_and(img,img,mask=mask)
+plt.subplot(2,1,1)
+plt.imshow(mask,cmap="gray")
+plt.subplot(2,1,2)
+plt.imshow(result)
+plt.show()
+  
+  **output**
+  
+  
+   ![175289105-10541db3-c382-4f66-8dab-a73fbf23faa5](https://user-images.githubusercontent.com/98145297/178955414-9235e926-2854-4c62-8cf6-eed95e8e0dcb.png)
+
+  
+   ![175289116-33e1fd8a-8b01-4389-81ff-299755b1ebdf](https://user-images.githubusercontent.com/98145297/178955432-7f7a057d-7496-466f-8852-f70fb3f5b5fc.png)
+
+  light_white=(0,0,200)
+dark_white=(145,60,255)
+mask_white=cv2.inRange(hsv_img,light_white,dark_white)
+result_white=cv2.bitwise_and(img,img,mask=mask_white)
+plt.subplot(1,2,1)
+plt.imshow(mask_white,cmap="gray")
+plt.subplot(1,2,2)
+plt.imshow(result_white)
+plt.show()
+  
+  **Output**
+  
+  ![175289164-cc631749-91e1-4fc6-9ad2-03f093de4ab2](https://user-images.githubusercontent.com/98145297/178955802-fb0d5647-da80-46f0-bdd1-92e320b67e64.png)
+
+  ![175289196-4e81d1dc-b5c5-44d5-8545-7fbc9d6817f7](https://user-images.githubusercontent.com/98145297/178955815-71a4b48e-9ad0-4bac-8c05-f7d968e86f83.png)
+
+  
+  final_mask=mask+mask_white
+final_result=cv2.bitwise_and(img,img,mask=final_mask)
+plt.subplot(1,2,1)
+plt.imshow(final_mask,cmap="gray")
+plt.subplot(1,2,2)
+plt.imshow(final_result)
+plt.show()
+  
+  
+   
+  ![175289261-eab81fc0-4e8e-4266-9691-6410cbccc286](https://user-images.githubusercontent.com/98145297/178955921-6f60933a-d7b7-4591-aab4-187557bd7e09.png)
+
+  
+  
+  
+  ![175289283-ab0a0a56-c9b8-4d92-965b-ef3fa899d725](https://user-images.githubusercontent.com/98145297/178955940-ea95cb77-431b-48b4-b5b6-712d973fdc4e.png)
+
+  
+  blur=cv2.GaussianBlur(final_result,(7,7),0)
+plt.imshow(blur)
+plt.show()
+  
+
+  ![175289334-3e3334c1-60fa-440b-8b80-ac5b9f636260](https://user-images.githubusercontent.com/98145297/178955991-b913e65b-59f7-4d36-a610-ec6c51c874c4.png)
+
+  
 
 **13.Develop the program to change the image to different color spaces.**<BR>
   
@@ -226,6 +310,96 @@ c.waitKey(0)<BR>
 
   **OUTPUT**<BR>
   ![175271426-a7f9f364-377a-4390-96df-e286e4bed715](https://user-images.githubusercontent.com/98145297/175287003-95572f56-12a1-421b-bcdf-2621846740b1.png)
+
+  
+**15.write program to perform bitwise operation?**
+  import cv2
+import matplotlib.pyplot as plt
+image1=cv2.imread('mardona.jpg',1)
+image2=cv2.imread('mardona.jpg')
+ax=plt.subplots(figsize=(15,10))
+bitwiseAnd=cv2.bitwise_and(image1,image2)
+bitwiseOr=cv2.bitwise_or(image1,image2)
+bitwiseXor=cv2.bitwise_xor(image1,image2)
+bitwiseNot_img1=cv2.bitwise_not(image1)
+bitwiseNot_img2=cv2.bitwise_not(image2)
+plt.subplot(151)
+plt.imshow(bitwiseAnd)
+plt.subplot(152)
+plt.imshow(bitwiseOr)
+plt.subplot(153)
+plt.imshow(bitwiseXor)
+plt.subplot(154)
+plt.imshow(bitwiseNot_img1)
+plt.subplot(155)
+plt.imshow(bitwiseNot_img2)
+cv2.waitKey(0)
+  
+  **OUTPUT**
+  
+  ![176419794-150537e0-33d5-40a0-9d3f-a90f0e6b8c81](https://user-images.githubusercontent.com/98145297/178956860-bae954e4-7639-4c3e-8d69-1a4c7a13305f.png)
+
+  **16.Blurring image?**
+  import cv2
+import numpy as np
+
+image=cv2.imread('pand.jpg')
+cv2.imshow('original image',image)
+
+*/Gaussian blur
+Gaussian=cv2.GaussianBlur(image,(7,7),0)
+cv2.imshow('Gaussian Blurring',Gaussian)
+
+*/Median Blur
+median=cv2.medianBlur(image,5)
+cv2.imshow('MediaN Blurring',median)
+
+*/Billateral Blur
+bilateral=cv2.bilateralFilter(image,9,75,75)
+cv2.imshow('Bilateral Blurring',bilateral)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+  
+  **Output**
+ 
+  
+![176423729-31495072-a7ea-475e-964f-1b9e4387feaf](https://user-images.githubusercontent.com/98145297/178957045-90645970-c16d-4acf-be97-f923c3917216.png)
+  
+  
+![176423387-3e9038a1-30a3-4890-90c9-e878ade379ed](https://user-images.githubusercontent.com/98145297/178957131-820b7fbd-a9b2-4f1b-909e-7299545cb8b7.png)
+  
+  
+  
+![176423231-fd583b5d-3792-4d02-bfaf-8ec1a231a0e1](https://user-images.githubusercontent.com/98145297/178957154-58d741a6-c000-4e17-aeb1-1939ffaa09c4.png)
+  
+  
+![176422811-5f8a3ee0-3a9f-411c-8505-a8140fcfb289](https://user-images.githubusercontent.com/98145297/178957213-0d271cae-f736-44e2-beda-0ae853e5a93c.png)
+  
+  **17.Image Enhancement?**
+  from PIL import Image
+from PIL import ImageEnhance
+image=Image.open('pand.jpg')
+image.show()
+enh_bri=ImageEnhance.Brightness(image)
+brightness=1.5
+image_brightened=enh_bri.enhance(brightness)
+image_brightened.show()
+enh_col=ImageEnhance.Color(image)
+color=1.5 image_colored=enh_col.enhance(color)
+image_colored.show()
+enh_con=ImageEnhance.Contrast(image)
+contrast=1.5
+image_contrasted=enh_con.enhance(contrast)
+image_contrasted.show()
+enh_sha=ImageEnhance.Sharpness(image)
+sharpness=3.0
+image_sharped=enh_sha.enhance(sharpness)
+image_sharped.show()
+  
+  **Output**
+    
+  
+![176424920-1ba63638-82be-4028-aa60-7c26b51ebe54](https://user-images.githubusercontent.com/98145297/178957798-b7f44e98-064f-44cc-b807-9e43939d7fd6.png)
 
   
   
