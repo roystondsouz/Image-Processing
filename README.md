@@ -178,229 +178,299 @@ cv2.destroyAllWindows()<BR>
   
 ![174048342-35f42e3d-bccf-4d8b-8b8f-44b19dd6182a](https://user-images.githubusercontent.com/98145297/175282802-fa368b84-bab0-4323-9203-9356ff8e3369.png)
   
-**  10.Develop a program to readimage using URL?**
-  
- from skimage import io
-import matplotlib.pyplot as plt
-url='https://www.alfredapp.com/blog/tips-and-tricks/tiny-png-workflow-compress-images/tinypng-panda.png'
-image=io.imread(url)
-plt.imshow(image)
-  **output**
-  ![175267752-1bb4a140-4b67-4c3b-a490-0dd6a8ab7388](https://user-images.githubusercontent.com/98145297/178954935-97908ab5-65e2-40fd-b0ab-581f6f567f86.png)
+10.Develop a program to readimage using URL?<br>
+from skimage import io<br>
+import matplotlib.pyplot as plt<br>
+url='https://www.alfredapp.com/blog/tips-and-tricks/tiny-png-workflow-compress-images/tinypng-panda.png'<br>
+image=io.imread(url)<br>
+plt.imshow(image)<br>
+plt.show()<br>
 
-  11. import cv2
-import matplotlib.image as mpimg
-import matplotlib.pyplot as plt
-img=mpimg.imread('images.jpg')
-plt.imshow(img)
-plt.show()
+output:<br>
+![image](https://user-images.githubusercontent.com/87934584/175267752-1bb4a140-4b67-4c3b-a490-0dd6a8ab7388.png)<br>
+11.
+import cv2<br>
+import matplotlib.image as mpimg<br>
+import matplotlib.pyplot as plt<br>
+img=mpimg.imread('images.jpg')<br>
+plt.imshow(img)<br>
+plt.show()<br>
 
-  ![175288897-b09f70dc-787b-4b19-beb5-aa9b54cb04cb](https://user-images.githubusercontent.com/98145297/178955160-57d13ef7-6865-4e90-8626-c770a5b045a2.png)
+![image](https://user-images.githubusercontent.com/87934584/175288897-b09f70dc-787b-4b19-beb5-aa9b54cb04cb.png)<br>
 
-hsv_img=cv2.cvtColor(img,cv2.COLOR_RGB2HSV)
-light_orange=(0,50,50)
-dark_orange=(10,255,255)
-mask=cv2.inRange(hsv_img,light_orange,dark_orange)
-result=cv2.bitwise_and(img,img,mask=mask)
-plt.subplot(2,1,1)
-plt.imshow(mask,cmap="gray")
-plt.subplot(2,1,2)
-plt.imshow(result)
-plt.show()
-  
-  **output**
-  
-  
-   ![175289105-10541db3-c382-4f66-8dab-a73fbf23faa5](https://user-images.githubusercontent.com/98145297/178955414-9235e926-2854-4c62-8cf6-eed95e8e0dcb.png)
+hsv_img=cv2.cvtColor(img,cv2.COLOR_RGB2HSV)<br>
+light_orange=(0,50,50)<br>
+dark_orange=(10,255,255)<br>
+mask=cv2.inRange(hsv_img,light_orange,dark_orange)<br>
+result=cv2.bitwise_and(img,img,mask=mask)<br>
+plt.subplot(2,1,1)<br>
+plt.imshow(mask,cmap="gray")<br>
+plt.subplot(2,1,2)<br>
+plt.imshow(result)<br>
+plt.show()<br>
+output:<br>
+![image](https://user-images.githubusercontent.com/87934584/175289105-10541db3-c382-4f66-8dab-a73fbf23faa5.png)
+![image](https://user-images.githubusercontent.com/87934584/175289116-33e1fd8a-8b01-4389-81ff-299755b1ebdf.png)<br>
+light_white=(0,0,200)<br>
+dark_white=(145,60,255)<br>
+mask_white=cv2.inRange(hsv_img,light_white,dark_white)<br>
+result_white=cv2.bitwise_and(img,img,mask=mask_white)<br>
+plt.subplot(1,2,1)<br>
+plt.imshow(mask_white,cmap="gray")<br>
+plt.subplot(1,2,2)<br>
+plt.imshow(result_white)<br>
+plt.show()<br>
 
-  
-   ![175289116-33e1fd8a-8b01-4389-81ff-299755b1ebdf](https://user-images.githubusercontent.com/98145297/178955432-7f7a057d-7496-466f-8852-f70fb3f5b5fc.png)
+![image](https://user-images.githubusercontent.com/87934584/175289164-cc631749-91e1-4fc6-9ad2-03f093de4ab2.png)
+![image](https://user-images.githubusercontent.com/87934584/175289196-4e81d1dc-b5c5-44d5-8545-7fbc9d6817f7.png)<br><br>
+final_mask=mask+mask_white<br>
+final_result=cv2.bitwise_and(img,img,mask=final_mask)<br>
+plt.subplot(1,2,1)<br>
+plt.imshow(final_mask,cmap="gray")<br>
+plt.subplot(1,2,2)<br>
+plt.imshow(final_result)<br>
+plt.show()<br>
 
-  light_white=(0,0,200)
-dark_white=(145,60,255)
-mask_white=cv2.inRange(hsv_img,light_white,dark_white)
-result_white=cv2.bitwise_and(img,img,mask=mask_white)
-plt.subplot(1,2,1)
-plt.imshow(mask_white,cmap="gray")
-plt.subplot(1,2,2)
-plt.imshow(result_white)
-plt.show()
-  
-  **Output**
-  
-  ![175289164-cc631749-91e1-4fc6-9ad2-03f093de4ab2](https://user-images.githubusercontent.com/98145297/178955802-fb0d5647-da80-46f0-bdd1-92e320b67e64.png)
+![image](https://user-images.githubusercontent.com/87934584/175289261-eab81fc0-4e8e-4266-9691-6410cbccc286.png)
+![image](https://user-images.githubusercontent.com/87934584/175289283-ab0a0a56-c9b8-4d92-965b-ef3fa899d725.png)<br>
+blur=cv2.GaussianBlur(final_result,(7,7),0)<br>
+plt.imshow(blur)<br>
+plt.show()<br>
 
-  ![175289196-4e81d1dc-b5c5-44d5-8545-7fbc9d6817f7](https://user-images.githubusercontent.com/98145297/178955815-71a4b48e-9ad0-4bac-8c05-f7d968e86f83.png)
+![image](https://user-images.githubusercontent.com/87934584/175289334-3e3334c1-60fa-440b-8b80-ac5b9f636260.png)
 
-  
-  final_mask=mask+mask_white
-final_result=cv2.bitwise_and(img,img,mask=final_mask)
-plt.subplot(1,2,1)
-plt.imshow(final_mask,cmap="gray")
-plt.subplot(1,2,2)
-plt.imshow(final_result)
-plt.show()
-  
-  
-   
-  ![175289261-eab81fc0-4e8e-4266-9691-6410cbccc286](https://user-images.githubusercontent.com/98145297/178955921-6f60933a-d7b7-4591-aab4-187557bd7e09.png)
 
-  
-  
-  
-  ![175289283-ab0a0a56-c9b8-4d92-965b-ef3fa899d725](https://user-images.githubusercontent.com/98145297/178955940-ea95cb77-431b-48b4-b5b6-712d973fdc4e.png)
 
-  
-  blur=cv2.GaussianBlur(final_result,(7,7),0)
-plt.imshow(blur)
-plt.show()
-  
 
-  ![175289334-3e3334c1-60fa-440b-8b80-ac5b9f636260](https://user-images.githubusercontent.com/98145297/178955991-b913e65b-59f7-4d36-a610-ec6c51c874c4.png)
 
-  
 
-**13.Develop the program to change the image to different color spaces.**<BR>
-  
-#Develop the program to change the image to different color spaces.<BR>
-import cv2<BR>
-img=cv2.imread("flower5.jpg")<BR>
-gray=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)<BR>
-hsv=cv2.cvtColor(img,cv2.COLOR_BGR2HSV)<BR>
-lab=cv2.cvtColor(img,cv2.COLOR_BGR2LAB)<BR>
-hls=cv2.cvtColor(img,cv2.COLOR_BGR2HLS)<BR>
-yuv=cv2.cvtColor(img,cv2.COLOR_BGR2YUV)<BR>
-cv2.imshow("GRAY image",gray)<BR>
-cv2.imshow("HSV image",hsv)<BR>
-cv2.imshow("LAB image",lab)<BR>
-cv2.imshow("HLS image",hls)<BR>
-cv2.imshow("YUV image",yuv)<BR>
-cv2.waitKey(0)
-cv2.destroyAllWindows()<BR>
-  
-**OUTPUT**<BR>
-  
 
-  
-![175270342-85783a7b-7426-4963-8c35-cca4c75c8fe9](https://user-images.githubusercontent.com/98145297/175286867-c28e0b73-de7a-449b-aba5-5854d4d1d91b.png)<BR>
-  
-  
-  ![175270746-5ea73ee1-aa46-4d09-9529-cf6ca35b1e35](https://user-images.githubusercontent.com/98145297/175286891-a32b7990-e0f5-4b9d-aa2e-864634d0c690.png)
-  
-![175270930-87dbe99b-4ce4-4300-a996-cfcb3ce2d7f0](https://user-images.githubusercontent.com/98145297/175286907-68b36de2-500a-4542-9a7a-89d4471f57df.png)<BR>
+12.Write a program to perform arithmatic operations on images?<br>
+import cv2<br>
+import matplotlib.image as mpimg<br>
+import matplotlib.pyplot as plt<br>
 
-  
-  
-![175271007-9e6cc280-f7c2-494b-9fa4-0f70b0671b04](https://user-images.githubusercontent.com/98145297/175286918-d52dd7d9-e4cc-42fc-b9e9-870d66e33b69.png)<BR>
-  
+*/reading imsge files/*<br>
+*/image should be in same size but different img/*
+img1=cv2.imread('goat.jpg')<br>
+img2=cv2.imread('king.jpg')<br>
 
-  ![175271082-f7c92ce4-161d-477f-8b4c-78a15af54dd2](https://user-images.githubusercontent.com/98145297/175286924-1587f0c3-fa1f-4cf8-9749-895d95abba36.png)<BR>
+*/applying NumPy addition on images/*<br>
+fimg1=img1+img2<br>
+plt.imshow(fimg1)<br>
+plt.show()<br>
 
-**14.Program to create an image using 2D array**.<BR>
-import cv2 as c<BR>
-import numpy as np<BR>
-from PIL import Image<BR>
-array=np.zeros([100,200,3],dtype=np.uint8)<BR>
-array[:,:100]=[255,130,0]<BR>
-array[:,100:]=[0,0,255]<BR>
-img=Image.fromarray(array)<BR>
-img.save('flower5.jpg')<BR>
-img.show()<BR>
-c.waitKey(0)<BR>
+*/saving the otput image/*<br>
+cv2.imwrite('output.jpg',fimg1)<br>
+fimg2=img1-img2<br>
+plt.imshow(fimg2)<br>
+plt.show()<br>
 
-  **OUTPUT**<BR>
-  ![175271426-a7f9f364-377a-4390-96df-e286e4bed715](https://user-images.githubusercontent.com/98145297/175287003-95572f56-12a1-421b-bcdf-2621846740b1.png)
 
-  
-**15.write program to perform bitwise operation?**
-  import cv2
-import matplotlib.pyplot as plt
-image1=cv2.imread('mardona.jpg',1)
-image2=cv2.imread('mardona.jpg')
-ax=plt.subplots(figsize=(15,10))
-bitwiseAnd=cv2.bitwise_and(image1,image2)
-bitwiseOr=cv2.bitwise_or(image1,image2)
-bitwiseXor=cv2.bitwise_xor(image1,image2)
-bitwiseNot_img1=cv2.bitwise_not(image1)
-bitwiseNot_img2=cv2.bitwise_not(image2)
-plt.subplot(151)
-plt.imshow(bitwiseAnd)
-plt.subplot(152)
-plt.imshow(bitwiseOr)
-plt.subplot(153)
-plt.imshow(bitwiseXor)
-plt.subplot(154)
-plt.imshow(bitwiseNot_img1)
-plt.subplot(155)
-plt.imshow(bitwiseNot_img2)
-cv2.waitKey(0)
-  
-  **OUTPUT**
-  
-  ![176419794-150537e0-33d5-40a0-9d3f-a90f0e6b8c81](https://user-images.githubusercontent.com/98145297/178956860-bae954e4-7639-4c3e-8d69-1a4c7a13305f.png)
+*/saving the output image/*<br>
+cv2.imwrite('output.jpg',fimg2)<br>
+fimg3=img1*img2<br>
+plt.imshow(fimg3)<br>
+plt.show()<br>
 
-  **16.Blurring image?**
-  import cv2
-import numpy as np
+*/saving the output image/*<br>
+cv2.imwrite('output.jpg',fimg3)<br>
+fimg4 = img1 / img2<br>
+plt.imshow(fimg4)<br>
+plt.show()<br>
 
-image=cv2.imread('pand.jpg')
-cv2.imshow('original image',image)
+*/saving the output image/*<br>
+cv2.imwrite('output.jpg',fimg4)<br>
+output:<br>
+![image](https://user-images.githubusercontent.com/87934584/175277477-3e87a4cf-031e-4283-8e10-ce7043cf7b94.png)
+<br>
+![image](https://user-images.githubusercontent.com/87934584/175277567-05318f3a-8ca8-41f4-9a80-e2281f9429f0.png)<br>
+![image](https://user-images.githubusercontent.com/87934584/175277618-95bed0a2-fb71-424a-acae-24e245b5f218.png)<br>
+![image](https://user-images.githubusercontent.com/87934584/175277676-573d6804-5892-414f-b67c-74302224c2a0.png)<br>
 
-*/Gaussian blur
-Gaussian=cv2.GaussianBlur(image,(7,7),0)
-cv2.imshow('Gaussian Blurring',Gaussian)
 
-*/Median Blur
-median=cv2.medianBlur(image,5)
-cv2.imshow('MediaN Blurring',median)
+13.Develop the program to change the image into different color?<br>
+import cv2<br>
+img=cv2.imread("car.jpg")<br>
+gray=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)<br>
+hsv=cv2.cvtColor(img,cv2.COLOR_BGR2HSV)<br>
+lab=cv2.cvtColor(img,cv2.COLOR_BGR2LAB)<br>
+hls=cv2.cvtColor(img,cv2.COLOR_BGR2HLS)<br>
+yuv=cv2.cvtColor(img,cv2.COLOR_BGR2YUV)<br>
+cv2.imshow("GRAY image",gray)<br>
+cv2.imshow("HSV image",hsv)<br>
+cv2.imshow("LAB image",lab)<br>
+cv2.imshow("HLS image",hls)<br>
+cv2.imshow("YUV image",yuv)<br>
+cv2.waitKey(0)<br>
+cv2.destroyAllWindows()<br>
+Output:<br>
+![image](https://user-images.githubusercontent.com/87934584/175274437-7b2f1867-0376-4aeb-9952-d4d3ae43390c.png)<br>
+![image](https://user-images.githubusercontent.com/87934584/175274546-c1a28c63-5fb3-40c7-9d1c-f154104a4bf3.png)<br>
+![image](https://user-images.githubusercontent.com/87934584/175274629-e9b4f270-323a-497e-8455-eb20076ca287.png)<br>
+![image](https://user-images.githubusercontent.com/87934584/175274748-e60c136d-7c75-4e3d-881f-92764fb0243d.png)<br>
+![image](https://user-images.githubusercontent.com/87934584/175274893-754300ef-2708-493a-9cff-1ab252328f5a.png)<br>
+14.Program to create an image using 2D array?
+import cv2 as c<br>
+import numpy as np<br>
+from PIL import Image<br>
+array=np.zeros([100,200,3],dtype=np.uint8)<br>
+array[:,:100]=[255,130,0]<br>
+array[:,100:]=[0,0,255]<br>
+img=Image.fromarray(array)<br>
+img.save('img1.png')<br>
+img.show()<br>
+c.waitKey(0)<br>
+Output:<br>
+![image](https://user-images.githubusercontent.com/87934584/175275363-32b08489-6317-4b74-8bc1-ff2d4261f2fd.png)
 
-*/Billateral Blur
-bilateral=cv2.bilateralFilter(image,9,75,75)
-cv2.imshow('Bilateral Blurring',bilateral)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
-  
-  **Output**
- 
-  
-![176423729-31495072-a7ea-475e-964f-1b9e4387feaf](https://user-images.githubusercontent.com/98145297/178957045-90645970-c16d-4acf-be97-f923c3917216.png)
-  
-  
-![176423387-3e9038a1-30a3-4890-90c9-e878ade379ed](https://user-images.githubusercontent.com/98145297/178957131-820b7fbd-a9b2-4f1b-909e-7299545cb8b7.png)
-  
-  
-  
-![176423231-fd583b5d-3792-4d02-bfaf-8ec1a231a0e1](https://user-images.githubusercontent.com/98145297/178957154-58d741a6-c000-4e17-aeb1-1939ffaa09c4.png)
-  
-  
-![176422811-5f8a3ee0-3a9f-411c-8505-a8140fcfb289](https://user-images.githubusercontent.com/98145297/178957213-0d271cae-f736-44e2-beda-0ae853e5a93c.png)
-  
-  **17.Image Enhancement?**
-  from PIL import Image
-from PIL import ImageEnhance
-image=Image.open('pand.jpg')
-image.show()
-enh_bri=ImageEnhance.Brightness(image)
-brightness=1.5
-image_brightened=enh_bri.enhance(brightness)
-image_brightened.show()
-enh_col=ImageEnhance.Color(image)
-color=1.5 image_colored=enh_col.enhance(color)
-image_colored.show()
-enh_con=ImageEnhance.Contrast(image)
-contrast=1.5
-image_contrasted=enh_con.enhance(contrast)
-image_contrasted.show()
-enh_sha=ImageEnhance.Sharpness(image)
-sharpness=3.0
-image_sharped=enh_sha.enhance(sharpness)
+15.write program to perform bitwise operation?<br>
+import cv2<br>
+import matplotlib.pyplot as plt<br>
+image1=cv2.imread('mardona.jpg',1)<br>
+image2=cv2.imread('mardona.jpg')<br>
+ax=plt.subplots(figsize=(15,10))<br>
+bitwiseAnd=cv2.bitwise_and(image1,image2)<br>
+bitwiseOr=cv2.bitwise_or(image1,image2)<br>
+bitwiseXor=cv2.bitwise_xor(image1,image2)<br>
+bitwiseNot_img1=cv2.bitwise_not(image1)<br>
+bitwiseNot_img2=cv2.bitwise_not(image2)<br>
+plt.subplot(151)<br>
+plt.imshow(bitwiseAnd)<br>
+plt.subplot(152)<br>
+plt.imshow(bitwiseOr)<br>
+plt.subplot(153)<br>
+plt.imshow(bitwiseXor)<br>
+plt.subplot(154)<br>
+plt.imshow(bitwiseNot_img1)<br>
+plt.subplot(155)<br>
+plt.imshow(bitwiseNot_img2)<br>
+cv2.waitKey(0)<br>
+output:<br>![image](https://user-images.githubusercontent.com/87934584/176419794-150537e0-33d5-40a0-9d3f-a90f0e6b8c81.png)<br>
+16.Blurring image?<br>
+import cv2<br>
+import numpy as np<br>
+
+image=cv2.imread('pand.jpg')<br>
+cv2.imshow('original image',image)<br>
+
+*/Gaussian blur<br>
+Gaussian=cv2.GaussianBlur(image,(7,7),0)<br>
+cv2.imshow('Gaussian Blurring',Gaussian)<br>
+
+
+*/Median Blur<br>
+median=cv2.medianBlur(image,5)<br>
+cv2.imshow('MediaN Blurring',median)<br>
+
+
+*/Billateral Blur<br>
+bilateral=cv2.bilateralFilter(image,9,75,75)<br>
+cv2.imshow('Bilateral Blurring',bilateral)<br>
+cv2.waitKey(0)<br>
+cv2.destroyAllWindows()<br>
+output:<br>
+![image](https://user-images.githubusercontent.com/87934584/176423729-31495072-a7ea-475e-964f-1b9e4387feaf.png)
+
+![image](https://user-images.githubusercontent.com/87934584/176423387-3e9038a1-30a3-4890-90c9-e878ade379ed.png)
+
+![image](https://user-images.githubusercontent.com/87934584/176423231-fd583b5d-3792-4d02-bfaf-8ec1a231a0e1.png)<br>
+
+![image](https://user-images.githubusercontent.com/87934584/176422811-5f8a3ee0-3a9f-411c-8505-a8140fcfb289.png)
+
+17.Image Enhancement?<br>
+from PIL import Image<br>
+from PIL import ImageEnhance<br>
+image=Image.open('pand.jpg')<br>
+image.show()<br>
+enh_bri=ImageEnhance.Brightness(image)<br>
+brightness=1.5<br>
+image_brightened=enh_bri.enhance(brightness)<br>
+image_brightened.show()<br>
+enh_col=ImageEnhance.Color(image)<br>
+color=1.5
+image_colored=enh_col.enhance(color)<br>
+image_colored.show()<br>
+enh_con=ImageEnhance.Contrast(image)<br>
+contrast=1.5<br>
+image_contrasted=enh_con.enhance(contrast)<br>
+image_contrasted.show()<br>
+enh_sha=ImageEnhance.Sharpness(image)<br>
+sharpness=3.0<br>
+image_sharped=enh_sha.enhance(sharpness)<br>
 image_sharped.show()
-  
-  **Output**
-    
-  
-![176424920-1ba63638-82be-4028-aa60-7c26b51ebe54](https://user-images.githubusercontent.com/98145297/178957798-b7f44e98-064f-44cc-b807-9e43939d7fd6.png)
+output:<br>
+![image](https://user-images.githubusercontent.com/87934584/176424845-7c3315f0-53a8-4db0-b228-8bdf2adcf282.png)
+![image](https://user-images.githubusercontent.com/87934584/176424920-1ba63638-82be-4028-aa60-7c26b51ebe54.png)
+![image](https://user-images.githubusercontent.com/87934584/176424993-ac049a5b-47d5-459b-b87e-26e51e9c9210.png)
+![image](https://user-images.githubusercontent.com/87934584/176425061-f4f3cdeb-519c-465e-97ab-81a362698339.png)
+![image](https://user-images.githubusercontent.com/87934584/176425182-c9ff2164-c4c4-4514-82b2-99bddd97ff7d.png)
 
-  
-  
-  
+18.Morphological_operation<br>
+import cv2<br>
+import numpy as np<br>
+from matplotlib import pyplot as plt<br>
+from PIL import Image,ImageEnhance<br>
+img=cv2.imread('mardona.jpg',0)<br>
+ax=plt.subplots(figsize=(20,10))<br>
+kernel=np.ones((5,5),np.uint8)<br>
+opening=cv2.morphologyEx(img,cv2.MORPH_OPEN,kernel)<br>
+closing=cv2.morphologyEx(img,cv2.MORPH_CLOSE,kernel)<br>
+erosion=cv2.erode(img,kernel,iterations=1)<br>
+dilation=cv2.dilate(img,kernel,iterations=1)<br>
+gradient=cv2.morphologyEx(img,cv2.MORPH_GRADIENT,kernel)<br>
+plt.subplot(151)<br>
+plt.imshow(opening)<br>
+plt.subplot(152)<br>
+plt.imshow(closing)<br>
+plt.subplot(153)<br>
+plt.imshow(erosion)<br>
+plt.subplot(154)<br>
+plt.imshow(dilation)<br>
+plt.subplot(155)<br>
+plt.imshow(gradient)<br>
+cv2.waitKey(0)<br>
+output:<br>
+![image](https://user-images.githubusercontent.com/87934584/176426007-2731e985-46f2-4920-b34e-8332586675be.png)
+
+19.slicing with background ?<br>
+import cv2<br>
+import numpy as np<br>
+from matplotlib import pyplot as plt<br>
+image=cv2.imread('dore.jpg',0)<br>
+x,y=image.shape<br>
+z=np.zeros((x,y))<br>
+for i in range(0,x):<br>
+    for j in range(0,y):<br>
+        if(image[i][j]>50 and image[i][j]<150):<br>
+            z[i][j]=255<br>
+        else:<br>
+            z[i][j]=image[i][j]<br>
+equ=np.hstack((image,z))<br>
+plt.title('Graylevel slicing with background')<br>
+plt.imshow(equ,'gray')<br>
+plt.show()<br>
+
+output:<br>![image](https://user-images.githubusercontent.com/87934584/178711477-8b08ac1d-83ec-4d8c-a478-bd092a3a37ac.png)
+
+20.Graylevel slicing without background?
+import cv2<br>
+import numpy as np<br>
+from matplotlib import pyplot as plt<br>
+image=cv2.imread('dore.jpg',0)<br>
+x,y=image.shape<br>
+z=np.zeros((x,y))<br>
+for i in range(0,x):<br>
+    for j in range(0,y):
+        if(image[i][j]>50 and image[i][j]<150):<br>
+            z[i][j]=255<br>
+        else:<br>
+            z[i][j]=0<br>
+equ=np.hstack((image,z))<br>
+plt.title('Graylevel slicing without background')<br>
+plt.imshow(equ,'gray')<br>
+plt.show()<br>
+
+output:<br>![image](https://user-images.githubusercontent.com/87934584/178711943-dc482981-3b05-4c0a-b650-a160d6c6e34c.png)
+
+
