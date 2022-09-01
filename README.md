@@ -1,4 +1,4 @@
-                    **IMAGE PROCESSING** <BR>
+                    **IMAGE PROCESSING**
   
 **1. Develop a program to display grayscale image using read and write operation.**<BR>
 pip install opencv-python<BR>
